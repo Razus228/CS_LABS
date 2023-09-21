@@ -1,8 +1,11 @@
 def encrypt_text(plaintext,n):
+    m = ""
     ans = ""
+
+    
     
     for i in range(len(plaintext)):
-        ch = plaintext[i]
+        ch = m + plaintext[i]
 
         if ch==" ":
             ans+= ch.replace(" ", "") 
@@ -18,10 +21,11 @@ def encrypt_text(plaintext,n):
     return ans
 
 def decrypt_text(plaintext, n):
+    m = ""
     answer = ""
 
     for j in range(len(plaintext)):
-        cz = plaintext[j]
+        cz = m + plaintext[j]
 
         if cz==" ":
             answer+= cz.replace(" ", "")
@@ -42,8 +46,9 @@ def print_menu():
             
 
 plaintext = input("Enter text : ")
-n = input("Enter key : ")
+n = input("Enter key1 : ")
 n = int(n)
+m = input("Enter key2 : ")
 while(True):
     print_menu()
     option = ''
@@ -53,15 +58,15 @@ while(True):
         print("Wrong input ")
     if option == 1:
         encrypt_text(plaintext, n)
-        print("Plain Text is : " + plaintext)
+        print("Plain Text is : " + m + plaintext)
         print("Shift pattern is : " + str(n))
-        print("Cipher Text is : " + encrypt_text(plaintext,n))
+        print("Cipher Text is : " + encrypt_text(m + plaintext,n))
         exit()
     elif option == 2:
         decrypt_text(plaintext, n)
-        print("Plain Text is : " + plaintext)
+        print("Plain Text is : " + m + plaintext)
         print("Shift pattern is : " + str(n))
-        print("Decipher Text is : " + decrypt_text(plaintext,n))
+        print("Decipher Text is : " + decrypt_text(m + plaintext,n))
         exit()
 
 
