@@ -19,7 +19,7 @@ def caesar_cipher(text, shift, operation, alphabet):
 
 def caesar_cipher_extended(text, shift, key, operation, alphabet):
     key = remove_duplicates(key)
-    modified_alphabet = rotate_left(remove_duplicates((key + alphabet).upper()), shift)
+    modified_alphabet = remove_duplicates((key + alphabet).upper())
     print('Modified alphabet')
     print(modified_alphabet)
     return caesar_cipher(text, shift, operation, modified_alphabet)
@@ -33,9 +33,9 @@ def remove_duplicates(input_string):
     return output_string
 
 
-def rotate_left(input_string, n):
-    n = n % len(input_string)
-    return input_string[n:] + input_string[:n]
+#def rotate_left(input_string, n):
+    #n = n % len(input_string)
+    #return input_string[n:] + input_string[:n]
 
 def menu(input_number):
     if input_number == 1:
